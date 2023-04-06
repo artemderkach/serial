@@ -21,6 +21,8 @@ https://man7.org/linux/man-pages/man3/termios.3.html
 https://www.mkssoftware.com/docs/man5/struct_termios.5.asp
 - Linux Serial Ports Using C/C++  
 https://blog.mbedded.ninja/programming/operating-systems/linux/linux-serial-ports-using-c-cpp/
+- working zig version for serial communication  
+https://github.com/MasterQ32/zig-serial
 
 ## Build
 `$ zig build-exe main.zig --name serial`
