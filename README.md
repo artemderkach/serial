@@ -30,3 +30,4 @@ https://github.com/MasterQ32/zig-serial
 ## Possible updates
 - add cli parameters to change speed and port
 - handle errors properly
+- add tests

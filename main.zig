@@ -1,4 +1,5 @@
 const std = @import("std");
+const builtin = @import("builtin");
 const os = std.os;
 
 const VTIME = 5;
@@ -7,8 +8,18 @@ const VSTART = 8;
 const VSTOP = 9;
 
 pub fn main() void {
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    const allocator = gpa.allocator();
+
+    var argIter = std.process.argsWithAllocator(allocator) catch unreachable;
+    defer argIter.deinit();
+
+    _ = argIter.skip();
+
+    const PORT = argIter.next() orelse "/dev/ttyACM0";
+
     // giving that file will be only opened, without creation, mode parameter is omited
-    const fd = os.open("/dev/ttyACM0", os.O.RDONLY, 0) catch unreachable;
+    const fd = os.open(PORT, os.O.RDONLY, 0) catch unreachable;
     defer os.close(fd);
 
     // termios structure is used for configuring ports
