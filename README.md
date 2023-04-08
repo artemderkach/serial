@@ -11,6 +11,7 @@ Need a small program to read serial data from microcontroller via USB. Usually i
 5. `[100]u8` is array/slice, `[]u8` is pointer to array/slice.
 6. speed for port transferring in zig can not be chosen as cross-platform, only as `os.linux.B115200`
 7. `os.open` requires 3 arguments, in case file is only opened without creating one, 3-rd argument `mode` is not required (set to 0)
+8. for some reason `{}` need to be added at the end of `std.heap.GeneralPurposeAllocator(.{}){}` statement
 
 ## Links
 - Serial Programming HOWTO  
